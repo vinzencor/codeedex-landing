@@ -9,9 +9,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'three/webgpu': path.resolve(__dirname, './src/three-webgpu-proxy.js'),
     },
   },
 })

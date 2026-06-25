@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, Vector3 } from "three";
+import { Color, Scene, Fog } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -257,25 +257,24 @@ export function WebGLRendererConfig() {
 
 export function World(props: WorldProps & { progress?: number }) {
   const { globeConfig, progress = 0 } = props;
-  const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
   const activeCameraZ = globeConfig.cameraZ || 300;
   const yOffset = globeConfig.yOffset || 0;
   return (
-    <Canvas scene={scene} camera={{ fov: 50, near: 10, far: 2000, position: [0, 0, activeCameraZ] }}>
+    <Canvas camera={{ fov: 50, near: 10, far: 2000, position: [0, 0, activeCameraZ] }}>
+      <fog attach="fog" args={["#ffffff", 400, 2000]} />
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
         color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
+        position={[-400, 100, 400]}
       />
       <directionalLight
         color={globeConfig.directionalTopLight}
-        position={new Vector3(-200, 500, 200)}
+        position={[-200, 500, 200]}
       />
       <pointLight
         color={globeConfig.pointLight}
-        position={new Vector3(-200, 500, 200)}
+        position={[-200, 500, 200]}
         intensity={0.8}
       />
       <group position={[0, yOffset, 0]}>

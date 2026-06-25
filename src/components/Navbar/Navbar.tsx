@@ -1,0 +1,141 @@
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { label: "Our Services", path: "/#design-services" },
+    { label: "Our Works", path: "/our-works" },
+  ];
+
+  const handleNavClick = (path: string) => {
+    if (path.startsWith("/#")) {
+      const sectionId = path.substring(2);
+      if (location.pathname === "/") {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }, 120);
+      }
+    } else {
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const expanded = !isScrolled || isHovered;
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="fixed z-[9999] left-1/2 -translate-x-1/2 top-4"
+      style={{ transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)" }}
+    >
+      <div
+        className="relative flex items-center justify-center overflow-hidden rounded-full border border-gray-200/80 bg-gray-50/90 backdrop-blur-xl"
+        style={{
+          width: expanded ? "820px" : "68px",
+          height: "64px",
+          transition:
+            "width 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease",
+          boxShadow: expanded
+            ? "0 4px 24px 0 rgba(0,0,0,0.08), 0 1px 4px 0 rgba(0,0,0,0.04)"
+            : "0 2px 12px 0 rgba(0,0,0,0.10)",
+        }}
+      >
+        {/* ── COLLAPSED: only logo, perfectly centered ── */}
+        {!expanded && (
+          <button
+            type="button"
+            onClick={() => {
+              navigate("/");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="flex items-center justify-center w-full h-full cursor-pointer focus:outline-none"
+          >
+            <img
+              className="h-9 w-9 object-contain"
+              alt="Codeedex Logo"
+              src="/Group 1.svg"
+            />
+          </button>
+        )}
+
+        {/* ── EXPANDED: full navbar row ── */}
+        {expanded && (
+          <div
+            className="flex items-center w-full px-5 gap-0"
+            style={{
+              opacity: expanded ? 1 : 0,
+              transition: "opacity 0.25s ease",
+            }}
+          >
+            {/* Logo */}
+            <button
+              type="button"
+              onClick={() => {
+                navigate("/");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="flex items-center gap-2.5 cursor-pointer shrink-0 focus:outline-none"
+            >
+              <img className="h-9 w-9 object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
+              <img
+                className="h-[26px] w-auto object-contain"
+                alt="Codeedex"
+                src="/logoname.svg"
+              />
+            </button>
+
+            {/* Nav links — centered */}
+            <nav className="flex items-center gap-8 mx-auto">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => handleNavClick(item.path)}
+                  className="text-[15px] font-medium text-gray-500 hover:text-gray-900 transition-colors duration-200 cursor-pointer whitespace-nowrap tracking-wide"
+                  style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* CTA button */}
+            <button
+              type="button"
+              onClick={() => {
+                const footer = document.getElementById("footer-area");
+                footer
+                  ? footer.scrollIntoView({ behavior: "smooth" })
+                  : window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+              }}
+              className="shrink-0 rounded-full bg-gray-800 hover:bg-gray-900 transition-colors duration-200 cursor-pointer focus:outline-none px-6 py-2.5"
+            >
+              <span
+                className="text-[14px] font-medium tracking-wide text-white whitespace-nowrap"
+                style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}
+              >
+                Let's Connect
+              </span>
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};

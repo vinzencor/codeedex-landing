@@ -9,6 +9,7 @@ import { ImpactMetricsSection } from "../ImpactMetricsSection/ImpactMetricsSecti
 import { World } from "../ui/globe";
 import { useScrollProgress } from "../../hooks/use-scroll-progress";
 import { ScrollTransitionGlobeParticle } from "../ui/scroll-transition-globe-particle";
+import { Navbar } from "../Navbar/Navbar";
 
 const colors = ["#ffffff", "#cbd5e1", "#e2e8f0", "#94a3b8", "#f8fafc"];
 const introArcs = [
@@ -114,7 +115,7 @@ export const DesktopScreen = () => {
 
     spans.forEach((spanNode, index) => {
       const span = spanNode as HTMLSpanElement;
-      
+
       const spanX = span.offsetLeft + span.offsetWidth / 2;
       const spanY = span.offsetTop + span.offsetHeight / 2;
 
@@ -125,12 +126,12 @@ export const DesktopScreen = () => {
       if (dist < radius) {
         const pct = 1 - dist / radius;
         const angle = Math.atan2(dy, dx);
-        
+
         const push = pct * 75;
         const tx = Math.cos(angle) * push;
         const ty = Math.sin(angle) * push;
         const tz = pct * 100;
-        
+
         const rotX = pct * 72 * Math.sin(index * 0.15);
         const rotY = pct * 72 * Math.cos(index * 0.15);
         const rotZ = pct * 36 * Math.sin(index * 0.3);
@@ -165,22 +166,23 @@ export const DesktopScreen = () => {
   const textOpacity = progress < 0.35
     ? 0
     : progress < 0.5
-    ? (progress - 0.35) / 0.15
-    : progress < 0.75
-    ? 1
-    : progress < 0.95
-    ? 1 - (progress - 0.75) / 0.2
-    : 0;
+      ? (progress - 0.35) / 0.15
+      : progress < 0.75
+        ? 1
+        : progress < 0.95
+          ? 1 - (progress - 0.75) / 0.2
+          : 0;
 
   const introGlobeOpacity = textOpacity * 0.6;
 
   return (
     <main className="bg-[#f3f3f3] w-full min-h-[6700px] relative overflow-x-hidden">
+      <Navbar />
       <h1 className="sr-only">Codeedex Technologies</h1>
       <section aria-label="Hero banner">
         <HeroBannerSection progress={progress} />
       </section>
-      
+
       {/* Page-wide particle transition canvas overlay */}
       <div className="absolute top-0 left-0 w-full h-[200vh] pointer-events-none z-20">
         <ScrollTransitionGlobeParticle
@@ -199,7 +201,7 @@ export const DesktopScreen = () => {
         className="top-[100vh] h-screen bg-[#0b0a0a] absolute left-0 w-full"
       >
         <div className="absolute left-[calc(50.00%_-_720px)] top-0 w-[1440px] h-full">
-          <div 
+          <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[976px] h-[976px] overflow-hidden select-none transition-opacity duration-75"
             style={{ opacity: introGlobeOpacity }}
           >
@@ -212,7 +214,7 @@ export const DesktopScreen = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1257px] h-[195px] flex items-center justify-center z-10 pointer-events-auto cursor-pointer"
             style={{ opacity: textOpacity }}
           >
-            <p 
+            <p
               className="w-full [font-family:'Gilroy-Light',Helvetica] font-light text-white text-[50px] text-center tracking-[0.50px] leading-[57px] select-none flex flex-wrap justify-center items-center"
               style={{ perspective: "1000px" }}
             >
@@ -237,7 +239,7 @@ export const DesktopScreen = () => {
           </div>
         </div>
       </section>
-      <section aria-label="Design services">
+      <section id="design-services" aria-label="Design services">
         <DesignServicesSection />
       </section>
       <section aria-label="Brand story">
@@ -259,7 +261,7 @@ export const DesktopScreen = () => {
             Our Featured Works
           </h2>
           <a
-            href="#featured-projects"
+            href="#our-works"
             className="absolute w-[calc(100%_-_1337px)] top-[3929px] left-[89px] h-[49px] flex items-center [font-family:'Poppins-Regular',Helvetica] font-normal text-black text-sm tracking-[0.14px] leading-[22px] pointer-events-auto"
           >
             All Works
@@ -290,7 +292,7 @@ export const DesktopScreen = () => {
           </div>
         </div>
       </section>
-      <section aria-label="Footer area" className="absolute left-0 top-0 w-full h-full pointer-events-none">
+      <section id="footer-area" aria-label="Footer area" className="absolute left-0 top-0 w-full h-full pointer-events-none">
         <div className="absolute left-[calc(50.00%_-_720px)] top-0 w-[1440px] h-full pointer-events-none">
           <aside className="absolute h-[calc(100%_-_6294px)] top-[6236px] left-[92px] w-[326px] flex flex-col justify-between rounded-[32.63px] shadow-[0px_2px_4.08px_#00000040] bg-[linear-gradient(139deg,rgba(32,76,147,1)_0%,rgba(30,105,210,1)_50%,rgba(54,152,230,1)_100%)] pointer-events-auto">
             <img
