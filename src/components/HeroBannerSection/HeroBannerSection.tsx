@@ -1,9 +1,6 @@
 import { World } from "../ui/globe";
 
-const navItems = [
-  { label: "Our Services", tracking: "tracking-[1.00px]" },
-  { label: "Our Works", tracking: "tracking-[3.20px]" },
-];
+
 
 const colors = ["#ffffff", "#cbd5e1", "#e2e8f0", "#94a3b8", "#f8fafc"];
 const heroArcs = [

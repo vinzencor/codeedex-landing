@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import image from "./image.svg";
-import markerForTheActiveStep01 from "./marker-for-the-active-step-01.svg";
 
 const steps = [
   {
@@ -41,7 +40,7 @@ const steps = [
 export const StrategicExecutionSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Auto-rotation effect
   useEffect(() => {

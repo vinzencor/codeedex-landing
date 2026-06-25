@@ -94,10 +94,7 @@ const textPositions = [
   },
 ];
 
-const navItems = [
-  { label: "Our Services", tracking: "tracking-[1.00px]" },
-  { label: "Our Works", tracking: "tracking-[3.20px]" },
-];
+
 
 export const Desktop = () => {
   const navigate = useNavigate();
