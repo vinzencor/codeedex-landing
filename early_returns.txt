@@ -1,0 +1,111 @@
+src/components/Admin/AdminDashboard.tsx:      if (fetchErr) {
+src/components/Admin/AdminDashboard.tsx:        if (fetchErr.message.includes("does not exist")) {
+src/components/Admin/AdminDashboard.tsx:    if (project.id) {
+src/components/Admin/AdminDashboard.tsx:        if (data) {
+src/components/Admin/AdminDashboard.tsx:    if (!e.target.files || e.target.files.length === 0) return;
+src/components/Admin/AdminDashboard.tsx:      if (uploadError) {
+src/components/Admin/AdminDashboard.tsx:    if (!name || !category) {
+src/components/Admin/AdminDashboard.tsx:      if (selectedProject?.id) {
+src/components/Admin/AdminDashboard.tsx:        if (updateErr) throw updateErr;
+src/components/Admin/AdminDashboard.tsx:        if (insertErr) throw insertErr;
+src/components/Admin/AdminDashboard.tsx:      if (savedProject.id) {
+src/components/Admin/AdminDashboard.tsx:        if (caseStudy?.id) {
+src/components/Admin/AdminDashboard.tsx:          if (csUpdateErr) throw csUpdateErr;
+src/components/Admin/AdminDashboard.tsx:          if (csInsertErr) throw csInsertErr;
+src/components/Admin/AdminDashboard.tsx:    if (!selectedProject?.id) return;
+src/components/Admin/AdminDashboard.tsx:    if (!window.confirm("Are you sure you want to delete this project? This will also delete the associated case study.")) return;
+src/components/Admin/AdminDashboard.tsx:      if (deleteErr) throw deleteErr;
+src/components/Admin/AdminLogin.tsx:    if (!signInError) {
+src/components/Admin/AdminLogin.tsx:    if (
+src/components/Admin/AdminLogin.tsx:    if (signUpError) {
+src/components/Admin/AdminLogin.tsx:      if (signUpError.message.toLowerCase().includes("already registered")) {
+src/components/Admin/AdminLogin.tsx:    if (data.session) {
+src/components/Admin/AdminPortal.tsx:  if (loading) {
+src/components/Admin/AdminPortal.tsx:  if (!session) {
+src/components/CaseStudy/CaseStudy.tsx:    if (!selectedProjectId) return;
+src/components/CaseStudy/CaseStudy.tsx:        if (projData) {
+src/components/CaseStudy/CaseStudy.tsx:        if (csData) {
+src/components/CaseStudy/CaseStudy.tsx:  if (loading) {
+src/components/CaseStudy/CaseStudy.tsx:      if (window.innerWidth < 1440) {
+src/components/CaseStudy/StrategicExecutionSection.tsx:    if (!isHovered) {
+src/components/CaseStudy/StrategicExecutionSection.tsx:      if (timerRef.current) clearInterval(timerRef.current);
+src/components/DesignServicesSection/DesignServicesSection.tsx:        if (card.type === "clients") {
+src/components/DesignServicesSection/DesignServicesSection.tsx:        if (card.type === "projects") {
+src/components/DesignServicesSection/DesignServicesSection.tsx:        if (card.type === "team") {
+src/components/DesktopScreen/DesktopScreen.tsx:    if (progress >= 0.35 && !blastTriggered) {
+src/components/DesktopScreen/DesktopScreen.tsx:                    if (char === " ") {
+src/components/Navbar/Navbar.tsx:    if (path.startsWith("/#")) {
+src/components/Navbar/Navbar.tsx:      if (location.pathname === "/") {
+src/components/OurWorks/OurWorks.tsx:        if (error) throw error;
+src/components/OurWorks/OurWorks.tsx:      if (window.innerWidth < 1440) {
+src/components/OurWorks/OurWorks.tsx:                  if (project.id) {
+src/components/ui/globe.tsx:    if (!globeRef.current && groupRef.current) {
+src/components/ui/globe.tsx:    if (!groupRef.current) return;
+src/components/ui/globe.tsx:    if (!globeRef.current || !isInitialized) return;
+src/components/ui/globe.tsx:    if (!globeRef.current || !isInitialized || !data) return;
+src/components/ui/globe.tsx:    for (let i = 0; i < arcs.length; i++) {
+src/components/ui/globe.tsx:    if (!globeRef.current || !isInitialized || !data) return;
+src/components/ui/globe.tsx:      if (!globeRef.current) return;
+src/components/ui/globe.tsx:  while (arr.length < count) {
+src/components/ui/globe.tsx:    if (arr.indexOf(r) === -1) arr.push(r);
+src/components/ui/scroll-particle-globe-text.tsx:    if (!containerRef.current) return;
+src/components/ui/scroll-particle-globe-text.tsx:      for (const entry of entries) {
+src/components/ui/scroll-particle-globe-text.tsx:        if (width > 0 && height > 0) {
+src/components/ui/scroll-particle-globe-text.tsx:    if (width === 0 || height === 0) return;
+src/components/ui/scroll-particle-globe-text.tsx:    for (let i = 0; i < activeCount; i++) {
+src/components/ui/scroll-particle-globe-text.tsx:      if (textPoints.length > 0) {
+src/components/ui/scroll-particle-globe-text.tsx:    if (!canvas) return;
+src/components/ui/scroll-particle-globe-text.tsx:    if (!ctx) return;
+src/components/ui/scroll-particle-globe-text.tsx:    if (width === 0 || height === 0) return;
+src/components/ui/scroll-particle-globe-text.tsx:      for (let i = 0; i < particles.length; i++) {
+src/components/ui/scroll-particle-globe-text.tsx:        if (progress <= 0.5) {
+src/components/ui/scroll-particle-globe-text.tsx:        if (distToCam <= 10) continue; // Clip behind camera
+src/components/ui/scroll-particle-globe-text.tsx:        if (px < -10 || px > width + 10 || py < -10 || py > height + 10) continue;
+src/components/ui/scroll-particle-globe-text.tsx:        if (z3d > globeRadius * 0.4 && activeTextWeight < 0.6) {
+src/components/ui/scroll-particle-globe-text.tsx:      if (animationFrameRef.current) {
+src/components/ui/scroll-particle-globe-text.tsx:  for (let i = 0; i < count; i++) {
+src/components/ui/scroll-particle-globe-text.tsx:  if (typeof document === "undefined") return [];
+src/components/ui/scroll-particle-globe-text.tsx:  if (!ctx) return [];
+src/components/ui/scroll-particle-globe-text.tsx:  if (lines.length === 1 && isParagraph) {
+src/components/ui/scroll-particle-globe-text.tsx:    if (w > maxLineWidth) maxLineWidth = w;
+src/components/ui/scroll-particle-globe-text.tsx:  if (maxLineWidth > maxAllowedWidth || totalHeight > maxAllowedHeight) {
+src/components/ui/scroll-particle-globe-text.tsx:  for (let y = 0; y < height; y += step) {
+src/components/ui/scroll-particle-globe-text.tsx:    for (let x = 0; x < width; x += step) {
+src/components/ui/scroll-particle-globe-text.tsx:      if (r > 120 && g > 120 && b > 120) {
+src/components/ui/scroll-particle-globe-text.tsx:  for (let i = 1; i < words.length; i++) {
+src/components/ui/scroll-particle-globe-text.tsx:    if (width < maxWidth) {
+src/components/ui/scroll-particle-globe-text.tsx:  if (hex.startsWith("rgb")) {
+src/components/ui/scroll-particle-globe-text.tsx:  if (c.length === 3) {
+src/components/ui/scroll-transition-globe-particle.tsx:    if (!containerRef.current) return;
+src/components/ui/scroll-transition-globe-particle.tsx:      for (const entry of entries) {
+src/components/ui/scroll-transition-globe-particle.tsx:        if (width > 0 && height > 0) {
+src/components/ui/scroll-transition-globe-particle.tsx:    if (width === 0) return;
+src/components/ui/scroll-transition-globe-particle.tsx:    for (let i = 0; i < activeCount; i++) {
+src/components/ui/scroll-transition-globe-particle.tsx:      if (isTextParticle) {
+src/components/ui/scroll-transition-globe-particle.tsx:    if (!canvas) return;
+src/components/ui/scroll-transition-globe-particle.tsx:    if (!ctx) return;
+src/components/ui/scroll-transition-globe-particle.tsx:    if (width === 0 || height === 0) return;
+src/components/ui/scroll-transition-globe-particle.tsx:      if (progress < 0.02) {
+src/components/ui/scroll-transition-globe-particle.tsx:      for (let i = 0; i < particles.length; i++) {
+src/components/ui/scroll-transition-globe-particle.tsx:        if (progress <= 0.5) {
+src/components/ui/scroll-transition-globe-particle.tsx:          if (p.isTextParticle) {
+src/components/ui/scroll-transition-globe-particle.tsx:          if (p.isTextParticle) {
+src/components/ui/scroll-transition-globe-particle.tsx:        if (distToCam <= 10) continue;
+src/components/ui/scroll-transition-globe-particle.tsx:        if (progress <= 0.5 && uVal === 0 && py > viewportHeight) continue;
+src/components/ui/scroll-transition-globe-particle.tsx:        if (px < -20 || px > width + 20 || py < -20 || py > height + 20) continue;
+src/components/ui/scroll-transition-globe-particle.tsx:        if (finalZ > 40 && textWeight < 0.6) {
+src/components/ui/scroll-transition-globe-particle.tsx:      if (animationFrameRef.current) {
+src/components/ui/scroll-transition-globe-particle.tsx:  for (let i = 0; i < count; i++) {
+src/components/ui/scroll-transition-globe-particle.tsx:  if (typeof document === "undefined") return [];
+src/components/ui/scroll-transition-globe-particle.tsx:  if (!ctx) return [];
+src/components/ui/scroll-transition-globe-particle.tsx:  if (lines.length === 1 && isParagraph) {
+src/components/ui/scroll-transition-globe-particle.tsx:    if (w > maxLineWidth) maxLineWidth = w;
+src/components/ui/scroll-transition-globe-particle.tsx:  if (maxLineWidth > maxAllowedWidth || totalHeight > maxAllowedHeight) {
+src/components/ui/scroll-transition-globe-particle.tsx:  for (let y = 0; y < height; y += step) {
+src/components/ui/scroll-transition-globe-particle.tsx:    for (let x = 0; x < width; x += step) {
+src/components/ui/scroll-transition-globe-particle.tsx:      if (imgData.data[idx] > 120) {
+src/components/ui/scroll-transition-globe-particle.tsx:  for (let i = 1; i < words.length; i++) {
+src/components/ui/scroll-transition-globe-particle.tsx:    if (width < maxWidth) {
+src/components/ui/scroll-transition-globe-particle.tsx:  if (hex.startsWith("rgb")) {
+src/components/ui/scroll-transition-globe-particle.tsx:  if (c.length === 3) {
+src/hooks/use-scroll-progress.ts:      if (!ref.current) return;

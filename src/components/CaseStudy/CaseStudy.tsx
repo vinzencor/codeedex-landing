@@ -104,19 +104,6 @@ export const CaseStudy = () => {
     },
   ];
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <span className="w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  const isHttpUrl =
-    project?.image_url?.startsWith("http") ||
-    project?.image_url?.startsWith("/") ||
-    project?.image_url?.startsWith("data:");
-
   const [scale, setScale] = useState(1);
   useEffect(() => {
     const handleResize = () => {
@@ -130,6 +117,21 @@ export const CaseStudy = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <span className="w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  const isHttpUrl =
+    project?.image_url?.startsWith("http") ||
+    project?.image_url?.startsWith("/") ||
+    project?.image_url?.startsWith("data:");
+
+
 
   return (
     <div className="w-full flex justify-center bg-white overflow-hidden" style={{ height: `${6231 * scale}px` }}>
