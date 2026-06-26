@@ -50,7 +50,7 @@ export const Navbar = () => {
       <div
         className="relative flex flex-col items-center overflow-hidden rounded-[32px] border border-gray-200/80 bg-gray-50/90 backdrop-blur-xl"
         style={{
-          width: expanded ? "min(820px, 90vw)" : "160px",
+          width: expanded ? "min(600px, 90vw)" : "160px",
           height: expanded && mobileMenuOpen ? "220px" : "64px",
           transition:
             "width 0.5s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s ease, box-shadow 0.3s ease",
@@ -67,10 +67,10 @@ export const Navbar = () => {
               navigate("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center justify-center gap-2.5 w-full h-[64px] cursor-pointer focus:outline-none"
+            className="flex items-center justify-center gap-0 w-full h-[64px] cursor-pointer focus:outline-none"
           >
             <img
-              className="h-9 w-9 object-contain"
+              className="h-[54px] w-[54px] object-contain"
               alt="Codeedex Logo"
               src="/Group 1.svg"
             />
@@ -99,9 +99,9 @@ export const Navbar = () => {
                   navigate("/");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="flex items-center gap-2.5 cursor-pointer shrink-0 focus:outline-none"
+                className="flex items-center gap-0 cursor-pointer shrink-0 focus:outline-none"
               >
-                <img className="h-8 w-8 sm:h-9 sm:w-9 object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
+                <img className="h-12 w-12 sm:h-[54px] sm:w-[54px] object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
                 <img
                   className="block h-[26px] w-auto object-contain"
                   alt="Codeedex"

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../../lib/supabaseClient";
@@ -136,12 +137,12 @@ export const CaseStudy = () => {
   return (
     <div className="w-full flex justify-center bg-white overflow-hidden" style={{ height: `${6231 * scale}px` }}>
       <Navbar />
-      <main 
+      <main
         className="bg-white overflow-hidden h-[6231px] relative shrink-0"
-        style={{ 
-          width: scale < 1 ? '1440px' : '100%',
-          transform: `scale(${scale})`, 
-          transformOrigin: 'top center' 
+        style={{
+          width: '1440px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'top center'
         }}
       >
         {/* Back button for user experience */}
@@ -175,8 +176,14 @@ export const CaseStudy = () => {
           </section>
         ))}
 
-        <section aria-label="Product overview description">
-          <p className="absolute top-[1559px] left-[calc(50%_-_605px)] w-[1210px] [font-family:'Poppins-Light',Helvetica] font-light text-[#45464d] text-lg tracking-[0] leading-8 text-center">
+        <section
+          aria-label="Product overview description"
+          className="absolute top-[1477px] left-0 w-full flex flex-col items-center gap-6 px-[115px]"
+        >
+          <h2 className="[font-family:'Poppins-SemiBold',Helvetica] font-semibold text-[#0b1c30] text-[42px] text-center tracking-[-1.28px] leading-[72px] whitespace-nowrap">
+            PRODUCT OVERVIEW
+          </h2>
+          <p className="w-full max-w-[1210px] [font-family:'Poppins-Light',Helvetica] font-light text-[#45464d] text-lg tracking-[0] leading-8 text-center">
             {dbCaseStudy?.overview || (
               <>
                 Colors Boutique is a modern online fashion destination offering a
@@ -196,11 +203,6 @@ export const CaseStudy = () => {
             )}
           </p>
         </section>
-        <div className="absolute top-[1477px] left-0 w-full h-[72px] flex items-center justify-center">
-          <h2 className="[font-family:'Poppins-SemiBold',Helvetica] font-semibold text-[#0b1c30] text-[42px] text-center tracking-[-1.28px] leading-[72px] whitespace-nowrap">
-            PRODUCT OVERVIEW
-          </h2>
-        </div>
       <StrategicExecutionSection />
       <ClientTestimonialSection
         quote={dbCaseStudy?.testimonial_quote}
@@ -255,9 +257,15 @@ export const CaseStudy = () => {
           </div>
         </div>
       </a>
-      <div className="w-[479px] pt-0 pb-[19.18px] px-0 absolute top-[2092px] left-[875px] flex flex-col max-w-[479.46px] items-start">
-        <div className="h-[378px] gap-[27.87px] pl-[45px] pr-[57.54px] pt-[35px] pb-[57.54px] relative w-full bg-[#f0f0f0] rounded-[38.36px] shadow-[0px_1.2px_2.4px_#0000000d] flex flex-col max-w-[479.46px] items-start">
-          <p className="relative flex items-center w-[400px] mt-[-1.20px] mb-[-29.34px] mr-[-23.07px] [font-family:'Gilroy-Medium-☞',Helvetica] font-normal text-black text-lg tracking-[0] leading-[35.1px]">
+      <motion.div
+        className="w-[479px] px-0 absolute top-[2050px] left-[875px] flex flex-col items-start"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <div className="relative w-full h-[402px] bg-white rounded-[38px] shadow-[0px_10px_50px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col justify-center px-[45px] py-[40px] items-start overflow-hidden">
+          <p className="relative [font-family:'Gilroy-Medium-☞',Helvetica] font-normal text-[#45464d] text-lg tracking-[0] leading-[35.1px]">
             {dbCaseStudy?.result || (
               <>
                 Designed Colors Boutique platform delivers a modern shopping
@@ -270,10 +278,16 @@ export const CaseStudy = () => {
             )}
           </p>
         </div>
-      </div>
-      <div className="inline-flex flex-col max-w-[479.46px] items-start pt-0 pb-[19.18px] px-0 absolute top-[2007px] left-[108px]">
-        <div className="relative max-w-[479.46px] w-full h-[402px] bg-[#f0f0f0] rounded-[38.36px] shadow-[0px_1.2px_2.4px_#0000000d] flex items-center justify-center px-[45px]">
-          <p className="text-center [font-family:'Gilroy-Medium-☞',Helvetica] font-normal text-black text-lg tracking-[0] leading-[35.1px]">
+      </motion.div>
+      <motion.div
+        className="w-[479px] px-0 absolute top-[2007px] left-[108px] flex flex-col items-start"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <div className="relative w-full h-[402px] bg-white rounded-[38px] shadow-[0px_10px_50px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col justify-center px-[45px] py-[40px] items-start overflow-hidden">
+          <p className="relative [font-family:'Gilroy-Medium-☞',Helvetica] font-normal text-[#45464d] text-lg tracking-[0] leading-[35.1px]">
             {dbCaseStudy?.challenge || (
               <>
                 The redesigned Colors Boutique platform delivers a modern shopping
@@ -286,7 +300,7 @@ export const CaseStudy = () => {
             )}
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="flex max-w-[534.82px] w-[487px] items-center justify-between px-[42.79px] py-[21.39px] absolute top-[2523px] left-[867px] rounded-[25px] bg-[linear-gradient(90deg,rgba(123,153,184,1)_0%,rgba(43,130,201,1)_50%,rgba(30,91,163,1)_100%)]">
         <div className="inline-flex flex-col items-start relative flex-[0_0_auto]">
           <div className="mt-[-1.34px] text-white relative flex items-center w-fit [font-family:'Gilroy-Medium-☞',Helvetica] font-normal text-[26.7px] tracking-[0] leading-[37.4px] whitespace-nowrap">
@@ -303,7 +317,7 @@ export const CaseStudy = () => {
           </div>
         </div>
       </div>
-      <div className="inline-flex flex-col items-start pt-0 pb-[19.18px] px-0 absolute top-[1892px] left-28">
+      <div className="inline-flex flex-col items-center pt-0 pb-[19.18px] px-0 absolute top-[1892px] left-28">
         <div className="flex w-[339px] items-center justify-between px-[42.79px] py-[21.39px] relative flex-[0_0_auto] bg-[#eeeeee] rounded-[25px]">
           <div className="inline-flex flex-col items-start relative flex-[0_0_auto]">
             <div className="mt-[-1.20px] text-neutral-950 relative flex items-center w-fit [font-family:'Gilroy-Medium-☞',Helvetica] font-normal text-[26.7px] tracking-[0] leading-[37.4px] whitespace-nowrap">
@@ -321,26 +335,93 @@ export const CaseStudy = () => {
           </div>
         </div>
       </div>
-      <div
-        className="top-[2364px] left-[855px] absolute w-3.5 h-3.5 bg-[#f0f0f0] rounded-[7px]"
+      <motion.div
+        className="top-[2364px] left-[855px] absolute w-3.5 h-3.5 bg-[#1f4c92] rounded-[7px] z-10"
         aria-hidden="true"
+        initial={{ scale: 0, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.8 }}
+        viewport={{ once: true }}
       />
-      <div
-        className="top-[2186px] left-[593px] absolute w-3.5 h-3.5 bg-[#f0f0f0] rounded-[7px]"
+      <motion.div
+        className="top-[2186px] left-[593px] absolute w-3.5 h-3.5 bg-[#1f4c92] rounded-[7px] z-10"
         aria-hidden="true"
+        initial={{ scale: 0, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+        viewport={{ once: true }}
       />
-      <img
-        className="absolute top-[2190px] left-[597px] w-[221px] h-[181px]"
-        alt=""
-        src={line2}
-        aria-hidden="true"
-      />
-      <img
-        className="absolute top-[2368px] left-[818px] w-[47px] h-[5px] object-cover"
-        alt=""
-        src={line3}
-        aria-hidden="true"
-      />
+      <svg
+        className="absolute top-[2190px] left-[597px] w-[221px] h-[181px] pointer-events-none"
+        viewBox="0 0 221 181"
+        fill="none"
+      >
+        <motion.path
+          d="M10 10 Q 110 90, 210 170"
+          stroke="#cbd5e1"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeDasharray="6 6"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.35, ease: "easeInOut" }}
+          viewport={{ once: true }}
+        />
+        {/* Animated continuous dashed line moving across */}
+        <motion.path
+          d="M10 10 Q 110 90, 210 170"
+          stroke="#1f4c92"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeDasharray="12 12"
+          initial={{ strokeDashoffset: 48, opacity: 0 }}
+          whileInView={{ opacity: 0.6 }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{
+            opacity: { delay: 1.5, duration: 0.5 },
+            strokeDashoffset: { duration: 1, repeat: Infinity, ease: "linear" }
+          }}
+          viewport={{ once: true }}
+        />
+      </svg>
+      <svg
+        className="absolute top-[2368px] left-[818px] w-[47px] h-[5px] pointer-events-none"
+        viewBox="0 0 47 5"
+        fill="none"
+      >
+        <motion.line
+          x1="0"
+          y1="2.5"
+          x2="47"
+          y2="2.5"
+          stroke="#cbd5e1"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeDasharray="6 6"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 0.45, delay: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        />
+        <motion.line
+          x1="0"
+          y1="2.5"
+          x2="47"
+          y2="2.5"
+          stroke="#1f4c92"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeDasharray="12 12"
+          initial={{ strokeDashoffset: 24, opacity: 0 }}
+          whileInView={{ opacity: 0.6 }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{
+            opacity: { delay: 1.5, duration: 0.5 },
+            strokeDashoffset: { duration: 0.5, repeat: Infinity, ease: "linear" }
+          }}
+          viewport={{ once: true }}
+        />
+      </svg>
     </main>
     </div>
   );

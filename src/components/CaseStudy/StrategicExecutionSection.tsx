@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import image from "./image.svg";
 
+const SPRING = { type: "spring" as const, stiffness: 80, damping: 14 };
+
 const steps = [
   {
     id: "01",
@@ -61,7 +63,7 @@ export const StrategicExecutionSection = () => {
       aria-labelledby="strategic-execution-heading"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="absolute top-[2688px] left-[calc(50.00%_-_612px)] h-[742px] w-[1224px] overflow-hidden rounded-[50px] bg-[#f7f7f7]"
+      className="absolute top-[2688px] left-[calc(50.00%_-_612px)] h-[742px] w-[1224px] overflow-hidden rounded-[50px] bg-[#f7f7f7] shadow-[0px_8px_60px_rgba(0,0,0,0.08)] border border-[#ebebeb]"
     >
       {/* Title */}
       <h2
@@ -72,21 +74,20 @@ export const StrategicExecutionSection = () => {
       </h2>
 
       {/* Rotating Circle Container */}
-      <div className="absolute top-[79px] left-[-498px] h-[584px] w-[804px] z-10">
+      <div className="absolute top-[-31px] left-[-498px] h-[804px] w-[804px] z-10">
         <motion.div
           animate={{ rotate: -activeIndex * 90 }}
-          transition={{ type: "spring", stiffness: 60, damping: 15 }}
+          transition={SPRING}
           className="relative w-full h-full rounded-full border border-solid border-gray-300 flex items-center justify-center"
         >
           {/* Numbers placed along the perimeter of the circle */}
           {steps.map((step, index) => {
             // Translate the angle into x, y coordinates along the border
             const radian = (step.angle * Math.PI) / 180;
-            // Radius of the circle (w/2 = 402, h/2 = 292 roughly)
-            const rx = 390;
-            const ry = 280;
-            const x = rx * Math.cos(radian);
-            const y = ry * Math.sin(radian);
+            // Radius of the perfect circle (w/2 = 402)
+            const r = 402;
+            const x = r * Math.cos(radian);
+            const y = r * Math.sin(radian);
 
             const isActive = index === activeIndex;
 
@@ -99,7 +100,7 @@ export const StrategicExecutionSection = () => {
                   top: `calc(50% + ${y}px - 28px)`,
                 }}
                 animate={{ rotate: activeIndex * 90 }}
-                transition={{ type: "spring", stiffness: 60, damping: 15 }}
+                transition={SPRING}
                 className="w-14 h-14 flex items-center justify-center"
               >
                 {isActive ? (
@@ -130,10 +131,10 @@ export const StrategicExecutionSection = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{ ...SPRING, opacity: { duration: 0.25 } }}
             className="flex items-center gap-8"
           >
             {/* Big Italic Number */}
