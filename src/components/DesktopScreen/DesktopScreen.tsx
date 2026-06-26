@@ -138,8 +138,8 @@ export const DesktopScreen = () => {
               text={introText}
               progress={progress}
               particleCount={1200}
-              particleColor="#ffffff"
-              ambientColor="#ffffff"
+              particleColor="#64748b"
+              ambientColor="#475569"
               rotationSpeed={1.2}
             />
           </div>

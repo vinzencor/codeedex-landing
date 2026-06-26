@@ -16,7 +16,6 @@ export const Navbar = () => {
   }, []);
 
   const navItems = [
-    { label: "Our Services", path: "/#design-services" },
     { label: "Our Works", path: "/our-works" },
   ];
 
@@ -50,7 +49,7 @@ export const Navbar = () => {
       <div
         className="relative flex flex-col items-center overflow-hidden rounded-[32px] border border-gray-200/80 bg-gray-50/90 backdrop-blur-xl"
         style={{
-          width: expanded ? "min(600px, 90vw)" : "160px",
+          width: expanded ? "min(480px, 90vw)" : "160px",
           height: expanded && mobileMenuOpen ? "220px" : "64px",
           transition:
             "width 0.5s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s ease, box-shadow 0.3s ease",
@@ -67,10 +66,10 @@ export const Navbar = () => {
               navigate("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center justify-center gap-0 w-full h-[64px] cursor-pointer focus:outline-none"
+            className="flex items-center justify-center gap-2 w-full h-[64px] cursor-pointer focus:outline-none"
           >
             <img
-              className="h-[54px] w-[54px] object-contain"
+              className="h-[64px] w-[64px] object-contain"
               alt="Codeedex Logo"
               src="/Group 1.svg"
             />
@@ -86,7 +85,7 @@ export const Navbar = () => {
         {expanded && (
           <>
             <div
-              className="flex items-center justify-between w-full px-4 sm:px-5 gap-2 sm:gap-0 h-[64px] shrink-0"
+              className="flex items-center justify-between w-full px-4 sm:px-5 gap-4 sm:gap-0 h-[64px] shrink-0"
               style={{
                 opacity: expanded ? 1 : 0,
                 transition: "opacity 0.25s ease",
