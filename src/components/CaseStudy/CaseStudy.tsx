@@ -12,7 +12,6 @@ import { StrategicExecutionSection } from "./StrategicExecutionSection";
 import vector from "./vector.svg";
 import vector2 from "./vector-2.svg";
 import { Navbar } from "../Navbar/Navbar";
-import { useScrollProgress } from "../../hooks/use-scroll-progress";
 
 export const CaseStudy = () => {
   const { projectId } = useParams<{ projectId: string }>();
