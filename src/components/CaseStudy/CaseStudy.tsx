@@ -6,8 +6,6 @@ import { ClientTestimonialSection } from "./ClientTestimonialSection";
 import { FooterSection } from "./FooterSection";
 import image1 from "./image-1.jpg";
 import { KeyHighlightsSection } from "./KeyHighlightsSection";
-import line2 from "./line-2.svg";
-import line3 from "./line-3.svg";
 import { ReadyToInnovateSection } from "./ReadyToInnovateSection";
 import { StrategicExecutionSection } from "./StrategicExecutionSection";
 import vector from "./vector.svg";
