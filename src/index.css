@@ -3,55 +3,55 @@
 /* Map custom font exports to modern Google fonts for premium look and layout stability */
 @font-face {
   font-family: 'Gilroy-Light';
-  src: local('Outfit Light'), local('Outfit-Light'), url('https://fonts.gstatic.com/s/outfit/v11/q3sVSFGlU5upzO7YL2YF.woff2') format('woff2');
+  src: local('Outfit Light'), local('Outfit-Light'), url('https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'Gilroy-Medium';
-  src: local('Outfit Medium'), local('Outfit-Medium'), url('https://fonts.gstatic.com/s/outfit/v11/q3sVSFGlU5upzO7YL2YF.woff2') format('woff2');
+  src: local('Outfit Medium'), local('Outfit-Medium'), url('https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'Gilroy-Regular';
-  src: local('Outfit Regular'), local('Outfit-Regular'), url('https://fonts.gstatic.com/s/outfit/v11/q3sVSFGlU5upzO7YL2YF.woff2') format('woff2');
+  src: local('Outfit Regular'), local('Outfit-Regular'), url('https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Gilroy-Light-☞';
-  src: local('Outfit Light'), local('Outfit-Light'), url('https://fonts.gstatic.com/s/outfit/v11/q3sVSFGlU5upzO7YL2YF.woff2') format('woff2');
+  src: local('Outfit Light'), local('Outfit-Light'), url('https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poppins-Regular';
-  src: local('Poppins Regular'), local('Poppins-Regular'), url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJbecnFHGPezSQ.woff2') format('woff2');
+  src: local('Poppins Regular'), local('Poppins-Regular'), url('https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poppins-Medium';
-  src: local('Poppins Medium'), local('Poppins-Medium'), url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2') format('woff2');
+  src: local('Poppins Medium'), local('Poppins-Medium'), url('https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poppins-SemiBold';
-  src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2') format('woff2');
+  src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poppins-Light';
-  src: local('Poppins Light'), local('Poppins-Light'), url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2') format('woff2');
+  src: local('Poppins Light'), local('Poppins-Light'), url('https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'Inter-Medium';
-  src: local('Inter Medium'), local('Inter-Medium'), url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2bo.woff2') format('woff2');
+  src: local('Inter Medium'), local('Inter-Medium'), url('https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
@@ -87,7 +87,7 @@
 }
 @font-face {
   font-family: 'Caveat-Regular';
-  src: local('Caveat Regular'), local('Caveat-Regular'), url('https://fonts.gstatic.com/s/caveat/v18/WnEBGm5if9pxqV3K1544qA.woff2') format('woff2');
+  src: local('Caveat Regular'), local('Caveat-Regular'), url('https://fonts.gstatic.com/s/caveat/v23/Wnz6HAc5bAfYB2Q7ZjYY.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
