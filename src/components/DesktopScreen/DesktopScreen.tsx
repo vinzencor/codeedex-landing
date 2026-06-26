@@ -5,7 +5,8 @@ import { CustomerQuotesSection } from "../CustomerQuotesSection/CustomerQuotesSe
 import { DesignServicesSection } from "../DesignServicesSection/DesignServicesSection";
 import { FeaturedProjectsSection } from "../FeaturedProjectsSection/FeaturedProjectsSection";
 import { HeroBannerSection } from "../HeroBannerSection/HeroBannerSection";
-import { ImpactMetricsSection } from "../ImpactMetricsSection/ImpactMetricsSection";
+import { DesktopCaseStudiesSection } from "./DesktopCaseStudiesSection";
+
 import { World } from "../ui/globe";
 import { useScrollProgress } from "../../hooks/use-scroll-progress";
 import { ScrollTransitionGlobeParticle } from "../ui/scroll-transition-globe-particle";
@@ -138,8 +139,8 @@ export const DesktopScreen = () => {
               text={introText}
               progress={progress}
               particleCount={1200}
-              particleColor="#64748b"
-              ambientColor="#475569"
+              particleColor="#b8c9dc"
+              ambientColor="#94a3b8"
               rotationSpeed={1.2}
             />
           </div>
@@ -211,31 +212,7 @@ export const DesktopScreen = () => {
             <BrandStorySection />
           </section>
 
-          <section aria-label="Featured works intro" className="absolute left-0 top-0 w-full h-full pointer-events-none">
-            <div className="absolute left-[calc(50.00%_-_720px)] top-0 w-[1440px] h-full pointer-events-none">
-              <div className="absolute w-[calc(100%_-_1325px)] top-[3817px] left-[79px] h-10 pointer-events-auto">
-                <div className="absolute w-[calc(100%_-_2px)] top-0 left-0 h-10 rounded-[19.64px] border-[0.73px] border-solid border-[#e3e3e3]" />
-                <div className="absolute w-[calc(100%_-_26px)] top-[3px] left-3 h-[34px] flex items-center [font-family:'Poppins-Regular',Helvetica] font-normal text-black text-sm tracking-[0.14px] leading-[33.8px]">
-                  CaseStudies
-                </div>
-              </div>
-              <p className="absolute w-[calc(100%_-_870px)] top-[3800px] left-[782px] h-[49px] flex items-center [font-family:'Poppins-Regular',Helvetica] font-normal text-[#7f7f7f] text-sm tracking-[0.14px] leading-[22px]">
-                Explore the digital products, websites, and applications we&apos;ve crafted to help businesses grow and innovate.
-              </p>
-              <h2 className="absolute w-[calc(100%_-_981px)] top-[3876px] left-[83px] h-[53px] flex items-center [font-family:'Gilroy-Light-☞',Helvetica] font-normal text-black text-5xl tracking-[0.96px] leading-[52.6px] whitespace-nowrap">
-                Our Featured Works
-              </h2>
-              <a
-                href="#our-works"
-                className="absolute w-[calc(100%_-_1337px)] top-[3929px] left-[89px] h-[49px] flex items-center [font-family:'Poppins-Regular',Helvetica] font-normal text-black text-sm tracking-[0.14px] leading-[22px] pointer-events-auto"
-              >
-                All Works
-              </a>
-              <div className="absolute top-[3945px] left-[162px] w-[18px] h-[18px] flex rotate-[-90.00deg] aspect-[1] pointer-events-auto" aria-hidden="true">
-                <img className="flex-1 w-[13.5px] rotate-[90.00deg]" alt="" src="/image.svg" />
-              </div>
-            </div>
-          </section>
+          <DesktopCaseStudiesSection />
 
           <section aria-label="Customer quotes" className="absolute left-0 top-0 w-full h-full pointer-events-none">
             <div className="absolute left-[calc(50.00%_-_720px)] top-0 w-[1440px] h-full pointer-events-none">
@@ -278,9 +255,7 @@ export const DesktopScreen = () => {
             </div>
           </section>
 
-          <section aria-label="Impact metrics">
-            <ImpactMetricsSection />
-          </section>
+
         </main>
       </div>
     </>

@@ -143,7 +143,7 @@ export const ScrollTransitionGlobeParticle: React.FC<ScrollTransitionGlobePartic
         tz,
         isTextParticle,
         delay: Math.random() * 0.25, // Stagger parameter
-        baseSize: 0.9 + Math.random() * 1.0,
+        baseSize: 1.6 + Math.random() * 1.4,
       });
     }
 
@@ -329,8 +329,8 @@ export const ScrollTransitionGlobeParticle: React.FC<ScrollTransitionGlobePartic
 
         // Depth cueing
         const depthFactor = clamp((finalZ + 150) / 300, 0, 1);
-        const alpha = 0.35 + depthFactor * 0.55 * (1 - textWeight * 0.45);
-        const size = Math.min(2.5, Math.max(0.5, p.baseSize * (cameraZ / distToCam) * 0.7));
+        const alpha = 0.5 + depthFactor * 0.45 * (1 - textWeight * 0.35);
+        const size = Math.min(4.0, Math.max(0.8, p.baseSize * (cameraZ / distToCam)));
 
         // Draw
         ctx.beginPath();
@@ -341,8 +341,8 @@ export const ScrollTransitionGlobeParticle: React.FC<ScrollTransitionGlobePartic
         // Subtle glow for front particles
         if (finalZ > 40 && textWeight < 0.6) {
           ctx.beginPath();
-          ctx.arc(px, py, size * 2.2, 0, 2 * Math.PI);
-          ctx.fillStyle = hexToRgbA(ambientColor, alpha * 0.12);
+          ctx.arc(px, py, size * 2.8, 0, 2 * Math.PI);
+          ctx.fillStyle = hexToRgbA(ambientColor, alpha * 0.22);
           ctx.fill();
         }
       }

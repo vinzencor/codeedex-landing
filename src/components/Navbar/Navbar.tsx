@@ -69,12 +69,12 @@ export const Navbar = () => {
             className="flex items-center justify-center gap-2 w-full h-[64px] cursor-pointer focus:outline-none"
           >
             <img
-              className="h-[64px] w-[64px] object-contain"
+              className="h-[22px] w-auto object-contain"
               alt="Codeedex Logo"
               src="/Group 1.svg"
             />
             <img
-              className="h-[26px] w-auto object-contain"
+              className="h-[22px] w-auto object-contain"
               alt="Codeedex"
               src="/logoname.svg"
             />
@@ -98,11 +98,11 @@ export const Navbar = () => {
                   navigate("/");
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
-                className="flex items-center gap-0 cursor-pointer shrink-0 focus:outline-none"
+                className="flex items-center gap-2 cursor-pointer shrink-0 focus:outline-none"
               >
-                <img className="h-12 w-12 sm:h-[54px] sm:w-[54px] object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
+                <img className="h-[26px] w-auto object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
                 <img
-                  className="block h-[26px] w-auto object-contain"
+                  className="h-[24px] w-auto object-contain"
                   alt="Codeedex"
                   src="/logoname.svg"
                 />
