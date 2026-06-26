@@ -44,7 +44,7 @@ export const Navbar = () => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="fixed z-[9999] left-1/2 -translate-x-1/2 top-4"
+      className="fixed z-[9999] left-1/2 -translate-x-1/2 top-4 scale-[0.65] md:scale-100 origin-top"
       style={{ transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       <div
