@@ -318,7 +318,7 @@ export const ScrollTransitionGlobeParticle: React.FC<ScrollTransitionGlobePartic
 
         // Visual projection onto canvas height
         const px = finalX; // finalX already contains absolute center X
-        
+
         // Add vertical offset to align particle text exactly with HTML paragraph center (Y = 1534.5px vs 1519px)
         const py = finalY + textWeight * 15.5;
 

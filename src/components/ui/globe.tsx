@@ -248,9 +248,9 @@ export function WebGLRendererConfig() {
 
   useEffect(() => {
     gl.setPixelRatio(window.devicePixelRatio);
-    gl.setSize(size.width, size.height);
+    gl.setSize(size.width, size.height, false);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [size, gl]);
 
   return null;
 }
@@ -260,7 +260,10 @@ export function World(props: WorldProps & { progress?: number }) {
   const activeCameraZ = globeConfig.cameraZ || 300;
   const yOffset = globeConfig.yOffset || 0;
   return (
-    <Canvas camera={{ fov: 50, near: 10, far: 2000, position: [0, 0, activeCameraZ] }}>
+    <Canvas 
+      camera={{ fov: 50, near: 10, far: 2000, position: [0, 0, activeCameraZ] }}
+      className="!w-full !h-full"
+    >
       <fog attach="fog" args={["#ffffff", 400, 2000]} />
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />

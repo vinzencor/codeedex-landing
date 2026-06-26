@@ -14,38 +14,39 @@ export const ClientTestimonialSection = ({
   return (
     <section
       aria-label="Client testimonial"
-      className="absolute top-[3547px] left-[calc(50.00%_-_546px)] h-[525px] w-[1120px] overflow-hidden rounded-[70px] border border-solid border-[#ffffff99] bg-[linear-gradient(150deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_100%)] shadow-[0px_4px_30px_#0000000d] backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]"
+      className="relative md:absolute md:top-[3547px] md:left-[calc(50.00%_-_546px)] mx-auto mt-16 md:mt-0 w-[90%] md:w-[1120px] h-auto min-h-[525px] overflow-hidden rounded-[30px] md:rounded-[70px] border border-solid border-[#ffffff99] bg-[linear-gradient(150deg,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.3)_100%)] shadow-[0px_4px_30px_#0000000d] backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)] flex flex-col md:flex-row"
     >
-      <div
-        aria-hidden="true"
-        className="absolute left-[691px] top-0 h-[calc(100%_-_1px)] w-[calc(100%_-_691px)] bg-[linear-gradient(0deg,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_100%)]"
-      />
-      <div className="absolute left-0 top-[18px] flex w-[calc(100%_-_483px)] flex-col items-start gap-8 bg-[#ffffff66] p-16">
-        <div className="relative flex w-full flex-[0_0_auto] flex-col items-start">
+      <div className="relative z-10 flex w-full md:w-[637px] flex-col items-start gap-6 md:gap-8 bg-[#ffffff66] p-8 md:p-16 my-auto">
+        <div className="flex w-full flex-col items-start">
           <img
-            className="relative h-[30px] w-full self-stretch"
+            className="h-[24px] md:h-[30px] w-auto object-contain"
             alt="Quotation mark icon"
             src={icon}
           />
         </div>
-        <figure className="relative mr-[-64.00px] flex w-[573px] flex-[0_0_auto] flex-col items-start">
-          <blockquote className="relative mt-[-1.00px] flex items-center self-stretch [font-family:'Poppins-MediumItalic',Helvetica] text-2xl font-medium italic leading-10 tracking-[-0.32px] text-[#0b1c30]">
+        <figure className="flex w-full flex-col items-start">
+          <blockquote className="[font-family:'Poppins-MediumItalic',Helvetica] text-lg md:text-2xl font-medium italic leading-relaxed md:leading-10 tracking-[-0.32px] text-[#0b1c30]">
             {quote}
           </blockquote>
         </figure>
-        <div className="relative flex w-full flex-[0_0_auto] flex-col items-start border-t border-[#e9e9e9] px-0 pb-0 pt-8 [border-top-style:solid]">
-          <div className="relative flex w-full flex-[0_0_auto] flex-col items-start">
-            <div className="relative mt-[-1.00px] flex items-center self-stretch [font-family:'Poppins-SemiBold',Helvetica] text-2xl font-semibold leading-9 tracking-[0] text-[#0b1c30]">
+        <div className="flex w-full flex-col items-start border-t border-[#e9e9e9] pt-6 md:pt-8 mt-4 md:mt-0">
+          <div className="flex w-full flex-col items-start">
+            <div className="[font-family:'Poppins-SemiBold',Helvetica] text-xl md:text-2xl font-semibold leading-8 md:leading-9 text-[#0b1c30]">
               {name}
             </div>
           </div>
-          <div className="relative flex w-full flex-[0_0_auto] flex-col items-start">
-            <div className="relative mt-[-1.00px] flex items-center self-stretch [font-family:'Poppins-Medium',Helvetica] text-xs font-medium leading-4 tracking-[1.20px] text-[#45464d]">
+          <div className="flex w-full flex-col items-start mt-1">
+            <div className="[font-family:'Poppins-Medium',Helvetica] text-[10px] md:text-xs font-medium leading-4 tracking-[1.20px] text-[#45464d] uppercase">
               {role}
             </div>
           </div>
         </div>
       </div>
+      
+      <div
+        aria-hidden="true"
+        className="hidden md:block absolute right-0 top-0 h-full w-[429px] bg-[linear-gradient(0deg,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_100%)] z-0"
+      />
     </section>
   );
 };

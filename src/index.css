@@ -103,6 +103,12 @@
   .all-unset {
     all: unset;
   }
+
+  /* Force all canvases (like Three.js) to fill their parents, ignoring internal resolution logic which breaks on scaled containers */
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 :root {

@@ -136,9 +136,31 @@ export const Desktop = () => {
     fetchDbProjects();
   }, []);
 
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1440) {
+        setScale(window.innerWidth / 1440);
+      } else {
+        setScale(1);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <main className="bg-white w-full min-w-[1440px] min-h-[1573px] relative pb-[120px]">
+    <div className="w-full flex justify-center bg-white overflow-hidden" style={{ height: `${1573 * scale}px` }}>
       <Navbar />
+      <main 
+        className="bg-white h-[1573px] relative pb-[120px] shrink-0"
+        style={{ 
+          width: scale < 1 ? '1440px' : '100%',
+          transform: `scale(${scale})`, 
+          transformOrigin: 'top center' 
+        }}
+      >
 
       {/* Main Works Grid Content */}
       <section
@@ -240,5 +262,6 @@ export const Desktop = () => {
         </div>
       </section>
     </main>
+    </div>
   );
 };

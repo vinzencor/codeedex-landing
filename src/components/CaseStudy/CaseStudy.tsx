@@ -12,6 +12,7 @@ import { StrategicExecutionSection } from "./StrategicExecutionSection";
 import vector from "./vector.svg";
 import vector2 from "./vector-2.svg";
 import { Navbar } from "../Navbar/Navbar";
+import { useScrollProgress } from "../../hooks/use-scroll-progress";
 
 export const CaseStudy = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -117,10 +118,31 @@ export const CaseStudy = () => {
     project?.image_url?.startsWith("/") ||
     project?.image_url?.startsWith("data:");
 
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1440) {
+        setScale(window.innerWidth / 1440);
+      } else {
+        setScale(1);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="w-full flex justify-center bg-white min-h-[6231px]">
-      <main className="bg-white overflow-hidden w-[1440px] min-h-[6231px] relative shrink-0">
-        <Navbar />
+    <div className="w-full flex justify-center bg-white overflow-hidden" style={{ height: `${6231 * scale}px` }}>
+      <Navbar />
+      <main 
+        className="bg-white overflow-hidden h-[6231px] relative shrink-0"
+        style={{ 
+          width: scale < 1 ? '1440px' : '100%',
+          transform: `scale(${scale})`, 
+          transformOrigin: 'top center' 
+        }}
+      >
         {/* Back button for user experience */}
         <div className="absolute top-[50px] left-[50px] z-50">
           <a

@@ -7,6 +7,8 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -19,6 +21,7 @@ export const Navbar = () => {
   ];
 
   const handleNavClick = (path: string) => {
+    setMobileMenuOpen(false);
     if (path.startsWith("/#")) {
       const sectionId = path.substring(2);
       if (location.pathname === "/") {
@@ -35,7 +38,7 @@ export const Navbar = () => {
     }
   };
 
-  const expanded = !isScrolled || isHovered;
+  const expanded = !isScrolled || isHovered || mobileMenuOpen;
 
   return (
     <div
@@ -45,12 +48,12 @@ export const Navbar = () => {
       style={{ transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       <div
-        className="relative flex items-center justify-center overflow-hidden rounded-full border border-gray-200/80 bg-gray-50/90 backdrop-blur-xl"
+        className="relative flex flex-col items-center overflow-hidden rounded-[32px] border border-gray-200/80 bg-gray-50/90 backdrop-blur-xl"
         style={{
-          width: expanded ? "820px" : "68px",
-          height: "64px",
+          width: expanded ? "min(820px, 90vw)" : "160px",
+          height: expanded && mobileMenuOpen ? "220px" : "64px",
           transition:
-            "width 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease",
+            "width 0.5s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s ease, box-shadow 0.3s ease",
           boxShadow: expanded
             ? "0 4px 24px 0 rgba(0,0,0,0.08), 0 1px 4px 0 rgba(0,0,0,0.04)"
             : "0 2px 12px 0 rgba(0,0,0,0.10)",
@@ -64,76 +67,127 @@ export const Navbar = () => {
               navigate("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center justify-center w-full h-full cursor-pointer focus:outline-none"
+            className="flex items-center justify-center gap-2.5 w-full h-[64px] cursor-pointer focus:outline-none"
           >
             <img
               className="h-9 w-9 object-contain"
               alt="Codeedex Logo"
               src="/Group 1.svg"
             />
+            <img
+              className="h-[26px] w-auto object-contain"
+              alt="Codeedex"
+              src="/logoname.svg"
+            />
           </button>
         )}
 
         {/* ── EXPANDED: full navbar row ── */}
         {expanded && (
-          <div
-            className="flex items-center w-full px-5 gap-0"
-            style={{
-              opacity: expanded ? 1 : 0,
-              transition: "opacity 0.25s ease",
-            }}
-          >
-            {/* Logo */}
-            <button
-              type="button"
-              onClick={() => {
-                navigate("/");
-                window.scrollTo({ top: 0, behavior: "smooth" });
+          <>
+            <div
+              className="flex items-center justify-between w-full px-4 sm:px-5 gap-2 sm:gap-0 h-[64px] shrink-0"
+              style={{
+                opacity: expanded ? 1 : 0,
+                transition: "opacity 0.25s ease",
               }}
-              className="flex items-center gap-2.5 cursor-pointer shrink-0 focus:outline-none"
             >
-              <img className="h-9 w-9 object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
-              <img
-                className="h-[26px] w-auto object-contain"
-                alt="Codeedex"
-                src="/logoname.svg"
-              />
-            </button>
+              {/* Logo */}
+              <button
+                type="button"
+                onClick={() => {
+                  navigate("/");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="flex items-center gap-2.5 cursor-pointer shrink-0 focus:outline-none"
+              >
+                <img className="h-8 w-8 sm:h-9 sm:w-9 object-contain" alt="Codeedex Logo" src="/Group 1.svg" />
+                <img
+                  className="block h-[26px] w-auto object-contain"
+                  alt="Codeedex"
+                  src="/logoname.svg"
+                />
+              </button>
 
-            {/* Nav links — centered */}
-            <nav className="flex items-center gap-8 mx-auto">
+              {/* Desktop Nav links — centered */}
+              <nav className="hidden md:flex items-center gap-8 mx-auto">
+                {navItems.map((item) => (
+                  <button
+                    key={item.label}
+                    type="button"
+                    onClick={() => handleNavClick(item.path)}
+                    className="text-[15px] font-medium text-gray-500 hover:text-gray-900 transition-colors duration-200 cursor-pointer whitespace-nowrap tracking-wide"
+                    style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              {/* Mobile Hamburger Toggle */}
+              <button
+                className="md:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none ml-auto mr-2"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                <span className={`bg-gray-800 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'}`}></span>
+                <span className={`bg-gray-800 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`bg-gray-800 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'}`}></span>
+              </button>
+
+              {/* CTA button (Desktop) */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  const footer = document.getElementById("footer-area");
+                  footer
+                    ? footer.scrollIntoView({ behavior: "smooth" })
+                    : window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                }}
+                className="hidden sm:block shrink-0 rounded-full bg-gray-800 hover:bg-gray-900 transition-colors duration-200 cursor-pointer focus:outline-none px-6 py-2.5"
+              >
+                <span
+                  className="text-[14px] font-medium tracking-wide text-white whitespace-nowrap"
+                  style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}
+                >
+                  Let's Connect
+                </span>
+              </button>
+            </div>
+
+            {/* Mobile Dropdown Menu */}
+            <div
+              className={`md:hidden flex flex-col items-center w-full px-4 gap-4 overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 mt-2' : 'opacity-0'}`}
+            >
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   type="button"
                   onClick={() => handleNavClick(item.path)}
-                  className="text-[15px] font-medium text-gray-500 hover:text-gray-900 transition-colors duration-200 cursor-pointer whitespace-nowrap tracking-wide"
+                  className="text-[16px] font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200 cursor-pointer"
                   style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}
                 >
                   {item.label}
                 </button>
               ))}
-            </nav>
-
-            {/* CTA button */}
-            <button
-              type="button"
-              onClick={() => {
-                const footer = document.getElementById("footer-area");
-                footer
-                  ? footer.scrollIntoView({ behavior: "smooth" })
-                  : window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-              }}
-              className="shrink-0 rounded-full bg-gray-800 hover:bg-gray-900 transition-colors duration-200 cursor-pointer focus:outline-none px-6 py-2.5"
-            >
-              <span
-                className="text-[14px] font-medium tracking-wide text-white whitespace-nowrap"
-                style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  const footer = document.getElementById("footer-area");
+                  footer
+                    ? footer.scrollIntoView({ behavior: "smooth" })
+                    : window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                }}
+                className="w-full rounded-full bg-gray-800 hover:bg-gray-900 text-white py-2.5 mt-1 transition-colors"
               >
-                Let's Connect
-              </span>
-            </button>
-          </div>
+                <span style={{ fontFamily: "'Gilroy-Medium', Helvetica, sans-serif" }}>
+                  Let's Connect
+                </span>
+              </button>
+            </div>
+          </>
         )}
       </div>
     </div>

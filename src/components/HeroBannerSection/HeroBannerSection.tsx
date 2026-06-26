@@ -87,12 +87,12 @@ const globeConfig = {
   hexPolygonMargin: 0.7,
 };
 
-export const HeroBannerSection = ({ progress = 0 }: { progress?: number }) => {
-  const globeOpacity = Math.max(0, 1 - progress / 0.2);
+export const HeroBannerSection = ({ progress = 0, scale = 1 }: { progress?: number, scale?: number }) => {
+  const globeOpacity = scale < 1 ? 1 : Math.max(0, 1 - progress / 0.2);
 
   return (
     <section
-      className="absolute left-0 top-0 h-screen w-full overflow-hidden bg-white"
+      className="absolute left-0 top-0 h-[900px] w-full overflow-hidden bg-white"
       aria-labelledby="hero-banner-heading"
     >
       <div className="absolute left-[calc(50.00%_-_720px)] top-0 w-[1440px] h-full">
@@ -105,11 +105,11 @@ export const HeroBannerSection = ({ progress = 0 }: { progress?: number }) => {
 
         <h1
           id="hero-banner-heading"
-          className="absolute left-[183px] top-[196px] flex h-[226px] w-[1081px] items-center justify-center text-center [font-family:'Outfit-ExtraBold',Helvetica] text-[72px] font-extrabold leading-[88px] tracking-[1.73px] text-black"
+          className="absolute left-[183px] top-[400px] md:top-[196px] flex h-[226px] w-[1081px] items-center justify-center text-center [font-family:'Outfit-ExtraBold',Helvetica] text-[72px] font-extrabold leading-[88px] tracking-[1.73px] text-black"
         >
           We Build Digital Products for Modern Businesses
         </h1>
-        <p className="absolute left-[87px] top-[411px] block w-[1274px] text-center [font-family:'Gilroy-Light',Helvetica] text-lg font-light leading-[35px] tracking-[0.18px] text-transparent">
+        <p className="absolute left-[87px] top-[600px] md:top-[411px] block w-[1274px] text-center [font-family:'Gilroy-Light',Helvetica] text-lg font-light leading-[35px] tracking-[0.18px] text-transparent">
           <span className="tracking-[0.03px] text-[#7f7f7f]">
             For over 3 years, Codeedex Technologies has been helping businesses
             turn ideas into impactful digital products. Based in Perinthalmanna,
@@ -139,7 +139,7 @@ export const HeroBannerSection = ({ progress = 0 }: { progress?: number }) => {
           src="/transparent-vector-white-cloud-sky-realistic-set-fog-smoke-png-texture-isolated-design-abstract-cloudy-air-effect-with-day-light-icon-collection-3d-beautiful-nature-atmosphere-vapor-smoky-steam-1.png"
         />
         <div 
-          className="absolute left-[58px] bottom-0 h-[496px] w-[1318px] overflow-hidden select-none transition-opacity duration-75"
+          className="absolute left-[58px] bottom-0 h-[496px] w-[1318px] overflow-hidden select-none transition-opacity duration-75 pointer-events-none"
           style={{ opacity: globeOpacity }}
         >
           <World data={heroArcs} globeConfig={globeConfig} progress={progress} />
